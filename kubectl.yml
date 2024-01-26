@@ -1,0 +1,5 @@
+- name: Install kubectl
+  hosts: all
+
+  roles:
+    - kubectl
