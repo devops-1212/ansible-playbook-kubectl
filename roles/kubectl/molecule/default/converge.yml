@@ -1,0 +1,7 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: "Install kubectl"
+      include_role:
+        name: "kubectl"
