@@ -1,0 +1,26 @@
+---
+galaxy_info:
+  author: devops_1212
+  role_name: kubectl
+  description: Install kubectl.
+  license: Apache-2.0
+
+  platforms:
+    - name: EL
+      versions:
+        - "7"
+    - name: Debian
+      versions:
+        - all
+    - name: Fedora
+      versions:
+        - all
+    - name: Ubuntu
+      versions:
+        - all
+
+  galaxy_tags:
+    - kubectl
+    - system
+
+dependencies: []
