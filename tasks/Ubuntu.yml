@@ -5,37 +5,26 @@
     upgrade: "no"
     update_cache: true
 
-- name: Install packages
+- name: Install python3-debian
   become: true
   become_user: root 
-  package: name={{ item }} state=present
-  with_items:
-   - apt-transport-https 
-   - ca-certificates 
-   - curl
-   - gpg
-
-- name: Create /etc/apt/keyrings directory
-  become: true
-  become_user: root 
-  ansible.builtin.file:
-    path: /etc/apt/keyrings
-    state: directory
-    owner: 'root'
-    group: 'root'
-    recurse: false
-
-- name: Download the public signing key for the Kubernetes package repositories
-  shell:
-    cmd: "curl -fsSL https://pkgs.k8s.io/core:/stable:/{{ kubectl_version }}/deb/Release.key | sudo gpg --dearmor --yes -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg"
+  package: name=python3-debian state=present
 
 - name: add Kubernetes apt repository
   become: true
   become_user: root
-  apt_repository:
-    repo: "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/{{ kubectl_version }}/deb/ /"
+  ansible.builtin.deb822_repository:
+    name: kubernetes
+    types: [deb]
+    uris: https://pkgs.k8s.io/core:/stable:/{{ kubectl_version }}/deb/
+    signed_by: https://pkgs.k8s.io/core:/stable:/{{ kubectl_version }}/deb/Release.key
+    suites: [/]
     state: present
-    filename: kubernetes
-    update_cache: yes
-    mode: 0644
-    validate_certs: yes
+    enabled: yes
+
+- name: Update apt packages
+  become: true
+  become_user: root
+  apt:
+    upgrade: "no"
+    update_cache: true
