@@ -1,4 +1,4 @@
-- include_tasks: "{{ ansible_distribution }}.yml"
+- include_tasks: "{{ ansible_os_family }}.yml"
 
 - name: Install kubectl
   become: true
