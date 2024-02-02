@@ -4,6 +4,7 @@ galaxy_info:
   role_name: kubectl
   description: Install kubectl.
   license: Apache-2.0
+  min_ansible_version: '2.6'
 
   platforms:
     - name: EL

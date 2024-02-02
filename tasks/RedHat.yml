@@ -2,6 +2,7 @@
 - name: Add kubernetes yum repository
   become: true
   become_user: root
-  template:
+  ansible.builtin.template:
     src: files/kubernetes.repo.j2
     dest: /etc/yum.repos.d/kubernetes.repo
+    mode: '0400'

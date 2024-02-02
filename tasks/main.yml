@@ -1,5 +1,6 @@
 ---
-- include_tasks: "{{ ansible_os_family }}.yml"
+- name: Include task list in play
+  ansible.builtin.include_tasks: "{{ ansible_os_family }}.yml"
 
 - name: Install kubectl
   become: true

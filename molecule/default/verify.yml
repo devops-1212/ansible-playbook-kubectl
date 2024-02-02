@@ -3,6 +3,11 @@
   hosts: all
   gather_facts: false
   tasks:
-    - name: Example assertion
-      assert:
-        that: true
+    - name: Run kubectl version
+      ansible.builtin.command: kubectl version --client=true
+      register: kubectl_version_output
+      changed_when: false
+
+    - name: Validate kubectl version rc
+      ansible.builtin.assert:
+        that: kubectl_version_output.rc == 0
