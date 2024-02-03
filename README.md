@@ -8,7 +8,7 @@ The Ansible role to install kubectl.
 - name: Install kubectl
   hosts: all
   roles:
-    - role: devops_1212.kubectl
+    - role: devops13242.kubectl
 ```
 
 ## Parameters

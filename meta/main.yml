@@ -1,6 +1,6 @@
 ---
 galaxy_info:
-  author: devops_1212
+  author: devops13242
   role_name: kubectl
   description: Install kubectl.
   license: Apache-2.0
