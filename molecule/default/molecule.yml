@@ -14,6 +14,8 @@ platforms:
     image: fedora:39
   - name: fedora40
     image: fedora:40
+  - name: fedora41
+    image: fedora:41
   - name: ubuntu2004
     image: ubuntu:20.04
   - name: ubuntu2204
