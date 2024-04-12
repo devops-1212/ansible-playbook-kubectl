@@ -6,3 +6,8 @@ test:
 lint:
 	yamllint .
 	ansible-lint
+
+.PHONY: test-virt
+test-virt: 
+	./test-virt
+
