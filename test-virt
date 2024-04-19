@@ -6,7 +6,9 @@ virtualenv $dir
 pip3 install -r requirements.txt
 
 make lint test
+result=$?
 
 deactivate
 rm -rf $dir
 
+exit $result
