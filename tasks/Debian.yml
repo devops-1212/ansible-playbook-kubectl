@@ -13,7 +13,7 @@
     name: python3-debian
     state: present
 
-- name: Add Kubernetes apt repository
+- name: Add kubernetes apt repository
   become: true
   become_user: root
   ansible.builtin.deb822_repository:

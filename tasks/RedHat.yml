@@ -2,7 +2,11 @@
 - name: Add kubernetes yum repository
   become: true
   become_user: root
-  ansible.builtin.template:
-    src: files/kubernetes.repo.j2
-    dest: /etc/yum.repos.d/kubernetes.repo
-    mode: '0400'
+  ansible.builtin.yum_repository:
+    name: kubernetes
+    baseurl: "https://pkgs.k8s.io/core:/stable:/{{ kubectl_version }}/rpm/"
+    description: kubernetes
+    enabled: true
+    gpgcheck: true
+    gpgkey: "https://pkgs.k8s.io/core:/stable:/{{ kubectl_version }}\
+      /rpm/repodata/repomd.xml.key"
