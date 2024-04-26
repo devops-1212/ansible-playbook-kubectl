@@ -13,7 +13,7 @@ The Ansible role to install kubectl.
 
 ## Parameters
 
-* `kubectl_version` - set the version of kubectl. Default value - v1.29.
+* `kubectl_version` - set the version of kubectl. Default value - v1.30.
 
 
 
